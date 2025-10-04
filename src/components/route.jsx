@@ -1,9 +1,11 @@
-import { Homepage, Woman, Man ,Clothes } from "./Section";
 import fetchApi from "../utils/utils";
 import { Outlet } from "react-router";
+import Homepage from "./Homepage/Homepage";
+import Woman from "./Woman/Woman";
+import Man from "./Man/Man";
+import Clothes from "./Clothes";
 
-
-const routes =[
+const routes = [
     {
         path: "/",
         element: <Homepage />,
