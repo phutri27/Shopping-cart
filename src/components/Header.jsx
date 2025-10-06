@@ -1,13 +1,21 @@
- import { useCart } from "./Cart";
+ import { useCart } from "./CartQuantity";
  import { Link } from "react-router";
  
  function Header(){
-    const { quantity } = useCart();
+    const { items, setLayout } = useCart();
+    const totalItems = items.reduce((sum, currentVal) => sum + currentVal.quantity, 0)
+
+    function setClothes(id){
+        setLayout(layout => layout.map(lays => (
+            lays.id === id ? {...lays, display: !lays.display} : lays
+        )))
+    }
+
     return (
         <header>
-            <Link to="/man" >Man</Link>
-            <Link to="/woman">Woman</Link>
-            <p>Cart: {quantity}</p>
+            <Link onMouseOver={() => setClothes(1)}  to="/man" >Man</Link>
+            <Link onMouseOver={() => setClothes(2)} to="/woman">Woman</Link>
+            <Link to="/cart">Cart: {totalItems}</Link>
         </header>
     )
 }

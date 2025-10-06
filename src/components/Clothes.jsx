@@ -1,14 +1,23 @@
 import { useParams, useRouteLoaderData } from "react-router";
-import { useCart } from "./Cart";
+import { useCart } from "./CartQuantity";
 import Header from "./Header";
-function Clothes(){
+function Clothes({head}){
     const {id} = useParams();
-    const datas = useRouteLoaderData("rootman");
-    const result = datas.find(data => data.id === Number(id))
-    const { setQuantity } = useCart();
+    const datas = useRouteLoaderData(head);
+    let result = datas.find(data => data.id === Number(id))
+    const { setItems, items } = useCart();
 
     function addToCart(){
-        setQuantity(q => q + 1)
+        const match = items.find(item => item.id === result.id)
+        if (!match || match === undefined){
+            result.quantity = 1;    
+            setItems(it => [...it, result])
+        }
+        else{
+            setItems(item => item.map(it => (
+                it.id === result.id ? {...it, quantity: it.quantity + 1} : it
+            )))
+        }
     }
 
     return (
