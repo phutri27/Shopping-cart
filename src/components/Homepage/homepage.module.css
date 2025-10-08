@@ -1,4 +1,5 @@
-.sidebar{
+.sidebar,
+.sidebarReturn{
     position: fixed;
     left: 0;
     top: 10vh;                          /* instead of margin-top */
@@ -14,42 +15,24 @@
     grid-template-columns: 1fr 1fr;
     background: white;
     z-index: 1000;
-    animation: slide-in 1000ms forwards;
     padding-bottom: 8px;   
     /* Hide scroll bar */
     scrollbar-width: none;        /* Firefox */
     -ms-overflow-style: none;     /* IE, Edge legacy */
+}
+
+.sidebar{
+  animation: slide-in 1000ms forwards;
 }
 
 .sidebarReturn{
-    position: fixed;
-    left: 0;
-    top: 10vh;                          /* instead of margin-top */
-    width: 40vw;
-
-    /* 👇 key lines to make it scroll */
-    height: calc(100vh - 9vh);          /* fills the screen below the header */
-    overflow-y: auto;                   /* enables wheel scrolling */
-    overscroll-behavior: contain;       /* stop body scroll when at ends */
-    -webkit-overflow-scrolling: touch;  /* smooth on iOS */
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background: white;
-    z-index: 1000;
-    animation: slide-out 1000ms forwards;
-    padding-bottom: 8px;   
-    /* Hide scroll bar */
-    scrollbar-width: none;        /* Firefox */
-    -ms-overflow-style: none;     /* IE, Edge legacy */
+  animation: slide-out 1000ms forwards
 }
-
 
 .sidebar::-webkit-scrollbar {
   display: none;                /* Chrome, Safari, Edge */
 }
 
-/* Optional: images fit nicely */
 .sidebar img {
   width: 100%;
   display: block;

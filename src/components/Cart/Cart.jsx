@@ -1,7 +1,7 @@
 import { useCart } from "../CartQuantity"
 import Header from "../Header"
 import styles from './styles/cart.module.css'
-import {Plus, Minus, Trash2 } from 'lucide-react'
+import { Plus, Minus, Trash2 } from 'lucide-react'
 
 function Cart(){
     const { items, setItems } = useCart();
@@ -77,7 +77,7 @@ function Cart(){
                             <div>
                                 <p>${sumTotal.toFixed(2)}</p>
                                 <p>Free</p>
-                                <p className={styles.totalCheckout}>${sumTotal.toFixed(2)}</p>
+                                <p aria-label="grand total" className={styles.totalCheckout}>${sumTotal.toFixed(2)}</p>
                             </div>
                         </div>
                         <div className={styles.buttonCheckout}>
@@ -102,14 +102,14 @@ function Cart(){
 }
 
 function Up({id, up}){
-    return <Plus className={styles.lucide} onClick={() => up(id)} size={30} strokeWidth={1.5}/>
+    return <Plus aria-label="Increase quantity" role="button" className={styles.lucide} onClick={() => up(id)} size={30} strokeWidth={1.5}/>
 }
 
 function Down({id, down}){
-    return <Minus className={styles.lucide} onClick={() => down(id)} size={30} strokeWidth={1.5}/>
+    return <Minus aria-label="Decrease quantity" role="button" className={styles.lucide} onClick={() => down(id)} size={30} strokeWidth={1.5}/>
 }
 
 function Trash() {
-    return <Trash2 className={styles.lucide} size={30} strokeWidth={1.5}/>
+    return <Trash2 aria-label="Remove from cart" role="button" className={styles.lucide} size={30} strokeWidth={1.5}/>
 }
 export default Cart

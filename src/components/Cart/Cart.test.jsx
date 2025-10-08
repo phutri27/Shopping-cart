@@ -55,21 +55,24 @@ describe("test cart componet",() =>{
     it("test increment button", async () => {
         const user = UserEvent.setup()
         renderWithCart(sampleItems)
-        const buttonUp = screen.getAllByText("Up");
+        const increaseButtons = screen.getAllByRole("button", {
+            name: /increase quantity/i,
+        });
 
-        await user.click(buttonUp[1])
-        await user.click(buttonUp[0])
-        await user.click(buttonUp[0])
+        await user.click(increaseButtons[1])
+        await user.click(increaseButtons[0])
+        await user.click(increaseButtons[0])
 
-        expect(screen.getByText("Total: $10.00")).toBeInTheDocument()
-        expect(screen.getByText("Items total: $50.00")).toBeInTheDocument()
+        expect(await screen.findByText(/\$40\.00/)).toBeInTheDocument();
+        const grandTotal = await screen.findByLabelText(/grand total/i);
+        expect(grandTotal).toHaveTextContent(/\$50\.00/);
     })
 
     it("test decrement button when hit 0", async () => {
         const user = UserEvent.setup()
         renderWithCart(sampleItems);
 
-        const buttonDown = screen.getAllByText("Down")
+        const buttonDown = screen.getAllByRole("button", {name: /decrease quantity/i})
         await user.click(buttonDown[1])
 
         expect(screen.queryByAltText("Pants")).not.toBeInTheDocument()

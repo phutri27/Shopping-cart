@@ -7,7 +7,8 @@ import routes from "./route";
 const router = createBrowserRouter(routes);
 
 export default  function App() {
-  const [items, setItems] = useState([])
+  const datas = JSON.parse(localStorage.getItem('items')) || []
+  const [items, setItems] = useState(datas)
 
   const [layout, setLayout] = useState([
     {
@@ -19,6 +20,7 @@ export default  function App() {
       display: false,
     }
   ])
+  localStorage.setItem("items", JSON.stringify(items))
   return (
     <CartContext.Provider value={{ items, setItems, layout, setLayout }}>
       <RouterProvider router={router} />
