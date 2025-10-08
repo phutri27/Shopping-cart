@@ -3,6 +3,7 @@ import { RouterProvider, createBrowserRouter } from "react-router";
 import { CartContext } from "./CartQuantity";
 import routes from "./route";
 
+
 const router = createBrowserRouter(routes);
 
 export default  function App() {

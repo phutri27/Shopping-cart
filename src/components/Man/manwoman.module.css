@@ -1,0 +1,31 @@
+.clothes{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 15vh;
+    justify-items: center;
+    align-items: center;
+
+}
+
+.imageDiv{
+    font-family: "Noto Sans", sans-serif;
+    font-size: 0.7rem;
+}
+
+.imageDiv img{
+    cursor: pointer;
+}
+
+.price{
+    display: flex;
+    flex-direction: column;
+}
+
+.price span{
+    width: 313px;
+}
+
+.price span:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}

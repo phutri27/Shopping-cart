@@ -1,6 +1,7 @@
 import { useNavigate, useRouteLoaderData } from "react-router";
+
 import Header from "../Header";
-import manStyles from './man.module.css'
+import manStyles from './manwoman.module.css'
 
 function Man() {
     const man = useRouteLoaderData("rootman");
@@ -11,12 +12,16 @@ function Man() {
     }
     return (
         <>
-        <div className={manStyles.menClothes}>
-            <Header />
+        <Header />
+        <div className={manStyles.clothes}>
+
             {man.map((men) =>
-            <div>
+            <div className={manStyles.imageDiv}>
                 <img src={men.imageUrl} alt={men.name} onClick={() => navi(men.id)}/>
-                <p>{men.name} <span>{men.price.current.text}</span></p>
+                <div className={manStyles.price}>
+                    <span onClick={() => navi(men.id)}>{men.name.toUpperCase()}</span> 
+                    {men.price.current.text}
+                </div>
             </div>
             )}
         </div>

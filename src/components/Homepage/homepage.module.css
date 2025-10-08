@@ -1,0 +1,90 @@
+.sidebar{
+    position: fixed;
+    left: 0;
+    top: 10vh;                          /* instead of margin-top */
+    width: 40vw;
+
+    /* 👇 key lines to make it scroll */
+    height: calc(100vh - 9vh);          /* fills the screen below the header */
+    overflow-y: auto;                   /* enables wheel scrolling */
+    overscroll-behavior: contain;       /* stop body scroll when at ends */
+    -webkit-overflow-scrolling: touch;  /* smooth on iOS */
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: white;
+    z-index: 1000;
+    animation: slide-in 1000ms forwards;
+    padding-bottom: 8px;   
+    /* Hide scroll bar */
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;     /* IE, Edge legacy */
+}
+
+.sidebarReturn{
+    position: fixed;
+    left: 0;
+    top: 10vh;                          /* instead of margin-top */
+    width: 40vw;
+
+    /* 👇 key lines to make it scroll */
+    height: calc(100vh - 9vh);          /* fills the screen below the header */
+    overflow-y: auto;                   /* enables wheel scrolling */
+    overscroll-behavior: contain;       /* stop body scroll when at ends */
+    -webkit-overflow-scrolling: touch;  /* smooth on iOS */
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: white;
+    z-index: 1000;
+    animation: slide-out 1000ms forwards;
+    padding-bottom: 8px;   
+    /* Hide scroll bar */
+    scrollbar-width: none;        /* Firefox */
+    -ms-overflow-style: none;     /* IE, Edge legacy */
+}
+
+
+.sidebar::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari, Edge */
+}
+
+/* Optional: images fit nicely */
+.sidebar img {
+  width: 100%;
+  display: block;
+  
+}
+
+.layout{
+  display: flex;
+  position: relative;
+}
+
+.layout .shopping{
+  position: absolute;
+  left: 0;
+  z-index: -1;
+}
+.shopping img{
+  width: 100vw;
+}
+
+@keyframes slide-in {
+    from {
+      transform: translateX(-150%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+}
+
+
+@keyframes slide-out {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-150%);
+    }
+}
