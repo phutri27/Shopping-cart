@@ -141,3 +141,10 @@
         opacity: 0.5;
     }
 }
+
+@media (max-width: 500px) {
+    .layoutInner{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}

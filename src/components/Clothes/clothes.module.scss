@@ -56,3 +56,15 @@
         
     }
 }
+
+@media (max-width: 500px){
+    .layout{
+        display: grid;
+        grid-template-columns: 1fr;
+        img{
+            margin-top: 200px;
+        }
+    }
+
+
+}

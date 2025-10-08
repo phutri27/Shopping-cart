@@ -71,3 +71,9 @@
       transform: translateX(-150%);
     }
 }
+
+@media (max-width: 500px){
+  .shopping img{
+    height: 80vh;
+  }
+}

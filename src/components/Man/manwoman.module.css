@@ -29,3 +29,10 @@
     text-decoration: underline;
     cursor: pointer;
 }
+
+@media (max-width: 500px) {
+    .clothes{
+        display: grid;
+        grid-template-columns: 1fr  ;
+    }
+}

@@ -2,7 +2,8 @@ import { useCart } from "../CartQuantity"
 import Header from "../Header"
 import styles from './styles/cart.module.css'
 import { Plus, Minus, Trash2 } from 'lucide-react'
-
+import visa from "../../assets/visa.png"
+import mastercard from "../../assets/mastercard.png"
 function Cart(){
     const { items, setItems } = useCart();
     const sumTotal = items.reduce((sum, currentVal) => sum + (currentVal.price.current.value * currentVal.quantity), 0)
@@ -85,8 +86,8 @@ function Cart(){
                         </div>
                         <div className={styles.checkoutInfo}>
                             <div className={styles.checkoutMethod}>
-                                <img src="src/assets/visa.png" alt="visa" />
-                                <img src="src/assets/mastercard.png" alt="mastercard" />
+                                <img src={visa} alt="visa" />
+                                <img src={mastercard} alt="mastercard" />
                             </div>
                             <div className={styles.checkoutDescription}>
                                 <p>This price and shipping cost is not final until you reach the checkout.</p>
