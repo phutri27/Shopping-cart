@@ -2,7 +2,7 @@
  import { Link } from "react-router";
  import styles from "./styles/header.module.css"
  import { Handbag, Search } from "lucide-react";
-
+ import hmLogo from "../assets/h&m.png";
  function Header(){
     const { items, setLayout } = useCart();
     const totalItems = items.reduce((sum, currentVal) => sum + currentVal.quantity, 0)
@@ -17,7 +17,7 @@
         <header className={`${styles.header} headers`}>
             <div>
                 <Link to="/" className={styles.icon}>
-                    <img src="src/assets/h&m.png" alt="" />
+                    <img src={hmLogo} alt="h and m" />
                 </Link>
                 <div className={styles.category}>
                     <Link className={styles.link} onMouseEnter={() => setClothes(1, true)}  to="/man" >MAN</Link>
